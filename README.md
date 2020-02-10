@@ -1,6 +1,6 @@
 <h1 align="center">
 <br>
-  <a href="https://github.com/yongtany"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlFrdi3Hoz4pV_yyca2V6_po8TjOOQuhQUqOq6UcIabiLA7sAU" alt="yongtany" width="128"></a>
+  <a href="https://yongtany-v2.herokuapp.com/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlFrdi3Hoz4pV_yyca2V6_po8TjOOQuhQUqOq6UcIabiLA7sAU" alt="yongtany" width="128"></a>
 <br>
 <br>
 yongtany.com
@@ -23,7 +23,7 @@ yongtany.com
 
 > This blog is a place for me to write down what I think. This helps me first with my English which is not my native language, and that also help me empty my brain. By doing this I hope I can help people with some of the thinking, tutorial or whatever stuff I wrote here.
 
-https://yongtany.herokuapp.com/
+https://yongtany-v2.herokuapp.com/
 
 ## Project Stack
 
@@ -36,7 +36,9 @@ Following items are core frontend technologies used in this project:
 - React Hook
 - Redux
 - Redux-Thunk
+- Ant design
 - Quill
+- Only funtional Compoent(with out quill)
 
 ### Server
 
@@ -46,6 +48,7 @@ Following items are core backend technologies used in this project:
 - express
 - mongoDB
 - mongoose
+- jsonwebtoken
 - Typescript-Node
 - cloudinary(media storage)
 - heroku(Automedically deploy)

@@ -45,18 +45,18 @@ function RegisterPage(props: any) {
       }}
       validationSchema={Yup.object().shape({
         name: Yup.string()
-          .required('Name is required'),
+          .required('이름을 입력하세요.'),
         username: Yup.string()
-          .required('Username Name is required'),
+          .required('닉네임을 입력하세요.'),
         email: Yup.string()
-          .email('Email is invalid')
-          .required('Email is required'),
+          .email('이메일 형식으로 입력하세요.')
+          .required('이메일을 입력하세요.'),
         password: Yup.string()
-          .min(6, 'Password must be at least 6 characters')
-          .required('Password is required'),
+          .min(6, '특수문자, 대소문자, 적절히 배합하여 6자 이상으로 만들어주세요.')
+          .required('비밀번호를 입력하세요.'),
         confirmPassword: Yup.string()
-          .oneOf([Yup.ref('password'), null], 'Passwords must match')
-          .required('Confirm Password is required')
+          .oneOf([Yup.ref('password'), null], '비밀번호가 일치하지 않습니다.')
+          .required('비밀번호를 확인하세요.')
       })}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
