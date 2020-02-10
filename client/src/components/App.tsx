@@ -11,7 +11,7 @@ import PostListPage from '../pages/PostListPage';
 
 function App () {
   return (
-    <Suspense fallback={(<div>Loading...</div>)}>
+    <Suspense fallback={(<div style={{ backgroundColor: '#1A191F', color: 'white'}}>Loading...</div>)}>
       <Navbar />
       <div style={{ minHeight: 'calc(95vh - 80px)', backgroundColor: '#1A191F'}}>
         <Switch >
