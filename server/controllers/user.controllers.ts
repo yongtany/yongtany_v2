@@ -20,7 +20,7 @@ export async function signUp(req: Request, res: Response) {
   if(foundUser) {
     return res.status(HTTPStatus.UNAUTHORIZED).json({
       success: false,
-      error: 'Email is already in use'
+      error: '등록된 이메일 입니다.'
     })
   }
 

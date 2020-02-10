@@ -37,7 +37,7 @@ function Comments(props: any) {
 
   return (
     <div>
-      <Text style={{ color: 'white'}} strong> replies</Text>
+      <Text style={{ color: 'white'}} strong> 댓글달기</Text>
       <hr />
 
       {/* Comment Listss */}

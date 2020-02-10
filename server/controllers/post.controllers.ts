@@ -74,12 +74,23 @@ export async function getPostById  (req: Request, res: Response){
 }
 
 export async function getPostList (req: Request, res: Response) {
+  // page가 주어지지 않았다면 1로 간주
+  // query는 문자열 형태로 받아 오므로 숫자로 변환
+  const page = parseInt(req.query.page || 1, 10);
+
+  // 잘못된 페이지가 주어졌다면 에러
+  if (page < 1) {
+    return res.status(HTTPStatus.BAD_REQUEST).json()
+  }
+
   await Post.find()
     .sort({ _id: -1 })
     .populate('writer')
+    .limit(9)
+    .skip((page - 1) * 9)
     .exec((err, posts) => {
       if(err) return res.status(HTTPStatus.BAD_REQUEST).send(err)
-      res.status(HTTPStatus.OK).json({ success: true, posts })
+      res.status(HTTPStatus.OK).json({ success: true, posts, page })
     })
 }
 
