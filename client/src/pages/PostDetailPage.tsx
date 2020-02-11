@@ -5,6 +5,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import { Avatar, Row, Col, Typography, Spin } from 'antd';
 import SidePost from '../components/SidePost/SidePost';
 import Comments from '../components/Comments/Comments';
+import Favorite from '../components/Favorite/Favorite'
 import { POST_SERVER, COMMENT_SERVER } from '../components/Config';
 
 const { Title, Text } = Typography
@@ -12,7 +13,7 @@ const { Title, Text } = Typography
 
 function PostDetailPage(props: any) {
   dayjs.extend(relativeTime);
-
+  window.scroll(0, 0);
   const postId = props.match.params.postId;
   const [post, setPost]: any = useState([]);
   const [CommentLists, setCommentLists ]: any = useState([]);
@@ -49,12 +50,23 @@ function PostDetailPage(props: any) {
               <Col lg={17} xs={24}>
                 <div className="postPage" style={{ color: 'white', width: '100%', margin: '3rem 0 3rem 0', padding: '3rem'}}>
                   <Title style={{ color: 'white'}} level={3}>{post.title}</Title>
-                  <img style={{ width: '100%', maxHeight: '400px' }} src={post.thumbnail} alt={post.title} />
+                  <img style={{ width: '100%', maxHeight: '400px', marginBottom: '1rem' }} src={post.thumbnail} alt={post.title} />
                   <Avatar src={post.writer.image} /> 
                   <Text strong style={{ color: 'white', fontSize: '1rem', marginLeft: '0.3rem'}}>{post.writer.username}</Text>
                   <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                       <Text style={{ color: 'white', opacity: '70%'}}>{dayjs(post.createdAt).fromNow()}</Text>
                   </div>
+                  
+                  <br />
+                  
+                  <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                    <Favorite
+                      userFrom={localStorage.getItem('userId')}
+                      postId={postId}
+                      postInfo={post}
+                    />
+                  </div>
+
                   <div 
                     className="post-content"
                     style={{ marginTop: '3rem'}}

@@ -9,7 +9,7 @@ const { Meta } = Card;
 function GridCard(props: any) {
   dayjs.extend(relativeTime);
     return (
-      <Col lg={8} md={12} xs={24}>
+      <Col lg={props.num < 2 ? 12 : 8} md={12} xs={24}>
           <Link to={`/post/${props.post._id}`}>
             <Card 
               bordered={false}
@@ -34,7 +34,7 @@ function GridCard(props: any) {
               description={
                 <div>
                   <Text style={{ color: 'white', opacity: '50%'}}>{dayjs(props.post.createdAt).fromNow()}</Text>
-                  <Text style={{ color: 'white', float: 'right'}}><Icon type="like" key="like" /> 27 Likes </Text>
+                  {/* <Text style={{ color: 'white', float: 'right'}}><Icon type="like" key="like" /> 27 Likes </Text> */}
                 </div>
               }
               />

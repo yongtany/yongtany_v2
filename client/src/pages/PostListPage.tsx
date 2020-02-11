@@ -52,6 +52,7 @@ function PostListPage() {
               {posts && posts.map((post: any, index: any) => (
                     <GridCard
                       post={post}
+                      num={index}
                       key={index}
                     />
               ))}

@@ -86,8 +86,8 @@ export async function getPostList (req: Request, res: Response) {
   await Post.find()
     .sort({ _id: -1 })
     .populate('writer')
-    .limit(9)
-    .skip((page - 1) * 9)
+    .limit(8)
+    .skip((page - 1) * 8)
     .exec((err, posts) => {
       if(err) return res.status(HTTPStatus.BAD_REQUEST).send(err)
       res.status(HTTPStatus.OK).json({ success: true, posts, page })
