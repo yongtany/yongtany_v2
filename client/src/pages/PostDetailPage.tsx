@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { Avatar, Row, Col, Typography } from 'antd';
+import { Avatar, Row, Col, Typography, Spin } from 'antd';
 import SidePost from '../components/SidePost/SidePost';
 import Comments from '../components/Comments/Comments';
 import { POST_SERVER, COMMENT_SERVER } from '../components/Config';
@@ -16,9 +16,7 @@ function PostDetailPage(props: any) {
   const postId = props.match.params.postId;
   const [post, setPost]: any = useState([]);
   const [CommentLists, setCommentLists ]: any = useState([]);
-
   
-
   useEffect(() => {
     axios.get(`${POST_SERVER}/${postId}`)
       .then(response => {
@@ -62,12 +60,13 @@ function PostDetailPage(props: any) {
                     style={{ marginTop: '3rem'}}
                     dangerouslySetInnerHTML={{ __html: post.content }} />
                 </div>
-
-                <Comments
-                  CommentLists={CommentLists}
-                  postId={postId}
-                  refreshFunction={updateComment}
-                />
+                <div style={{ padding: '0 3rem 3rem 3rem'}}>
+                  <Comments
+                    CommentLists={CommentLists}
+                    postId={postId}
+                    refreshFunction={updateComment}
+                  />
+                </div>
               </Col>
               <Col lg={7} xs={24}>
                 <div style={{padding: '3rem 1rem'}}>
@@ -80,7 +79,11 @@ function PostDetailPage(props: any) {
     )
   } else {
       return (
-          <div style={{ width: '100%', margin: '3rem auto' }}>loading...</div>
+          <div style={{ textAlign: 'center', padding: '10rem 0'}}>
+              <Spin
+              size="large"
+            />
+          </div>
       )
   }
 }
