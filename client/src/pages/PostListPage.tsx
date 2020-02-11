@@ -4,6 +4,8 @@ import { Row, Col, Typography, Button } from 'antd';
 import SidePost from '../components/SidePost/SidePost';
 import GridCard from '../components/GridCard/GridCard';
 import { POST_SERVER } from '../components/Config';
+// import InstaFeed from '../components/InstaFeed/InstaFeed';
+
 const { Title } = Typography;
 
 function PostListPage() {
@@ -38,6 +40,7 @@ function PostListPage() {
       <Col lg={7} xs={24}>
           <div style={{padding: '3rem 2rem 0 0'}}>
             <SidePost />
+            {/* <InstaFeed /> */}
           </div>
         </Col>
         <Col lg={17} xs={24}>
@@ -65,6 +68,8 @@ function PostListPage() {
               >
                 더보기
               </Button>
+            </div>
+            <div>
             </div>
           </div>
         </Col>
