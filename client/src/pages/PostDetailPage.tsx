@@ -10,7 +10,6 @@ import { POST_SERVER, COMMENT_SERVER } from '../components/Config';
 
 const { Title, Text } = Typography
 
-
 function PostDetailPage(props: any) {
   dayjs.extend(relativeTime);
   window.scroll(0, 0);

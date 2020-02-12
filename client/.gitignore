@@ -24,3 +24,4 @@ yarn-error.log*
 
 # Private contants
 /src/components/PrivateConfig.ts
+/src/components/InstaFeed/InstaFeed.tsx
