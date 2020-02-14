@@ -27,6 +27,11 @@ function LeftMenu(props: any) {
             포스트 생성
           </Link>
         </Menu.Item>
+        <Menu.Item key="setting:2">
+          <Link to="/likePost">
+            좋아한 포스트
+          </Link>
+        </Menu.Item>
       </MenuItemGroup>
     </SubMenu>
     }

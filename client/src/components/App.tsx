@@ -8,6 +8,7 @@ import LoginPage from '../pages/LoginPage';
 import CreatePostPage from '../pages/CreatePostPage';
 import PostDetailPage from '../pages/PostDetailPage';
 import LandingPage from '../pages/LandingPage';
+import LikePost from '../pages/LikePostPage';
 
 function App () {
   return (
@@ -20,6 +21,7 @@ function App () {
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
           <Route exact path="/createPost" component={Auth(CreatePostPage, true)} />
           <Route exact path="/post/:postId" component={Auth(PostDetailPage, null)} />
+          <Route exact path="/likePost" component={Auth(LikePost, true)} />
         </Switch>
       </div>
       <Footer />

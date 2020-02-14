@@ -8,6 +8,38 @@ const { Meta } = Card;
 
 function GridCard(props: any) {
   dayjs.extend(relativeTime);
+  if(props.likes) {
+    return (
+      <Col lg={props.num < 2 ? 12 : 8} md={12} xs={24}>
+          <Link to={`/post/${props.likes._id}`}>
+            <Card 
+              bordered={false}
+              hoverable
+              style={{ backgroundColor: '#1A191F', marginBottom: '2rem', width: '100%'}}
+              cover={
+                <div>
+                  <img
+                    style={{width: '100%', height: '250px'}}
+                    alt="example"
+                    src={`${props.likes.thumbnail}`}
+                  />
+                </div>
+            }
+            >
+            <Meta
+              title={<Text style={{ color: 'white'}}>{props.likes.title}</Text>}
+              description={
+                <div>
+                  <Text style={{ color: 'white', opacity: '50%'}}>{dayjs(props.likes.createdAt).fromNow()}</Text>
+                  {/* <Text style={{ color: 'white', float: 'right'}}><Icon type="like" key="like" /> 27 Likes </Text> */}
+                </div>
+              }
+              />
+            </Card>
+          </Link>
+        </Col>
+    )
+  } else {
     return (
       <Col lg={props.num < 2 ? 12 : 8} md={12} xs={24}>
           <Link to={`/post/${props.post._id}`}>
@@ -42,6 +74,8 @@ function GridCard(props: any) {
           </Link>
         </Col>
     )
+  }
+    
 }
 
 export default GridCard

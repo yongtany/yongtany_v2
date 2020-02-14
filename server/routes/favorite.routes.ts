@@ -8,5 +8,6 @@ router.post('/favoriteNumber', favoriteControllers.favoriteNumber);
 router.post('/favorited', auth, favoriteControllers.favorited);
 router.post('/addToFavorite', auth, favoriteControllers.addToFavorite);
 router.post('/removeFromFavorite', auth, favoriteControllers.removeFromFavorite);
+router.get('/getFavoritedMovies', auth, favoriteControllers.getFavoritedPosts);
 
 export default router;

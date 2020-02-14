@@ -48,3 +48,11 @@ export function favoriteNumber(req: Request, res: Response) {
       })
     })
 }
+
+export function getFavoritedPosts(req: Request, res: Response) {
+  Favorite.find({ 'userFrom': req.user._id })
+    .exec((err: Error, favorites) => {
+      if(err) return res.status(HTTPStatus.BAD_REQUEST).json({ sccess: false, err });
+      res.status(HTTPStatus.OK).json({ success: true, favorites })
+    })
+}
