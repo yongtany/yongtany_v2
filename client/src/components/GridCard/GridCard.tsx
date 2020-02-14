@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { Card, Typography, Col, Icon, Avatar } from 'antd';
+import { Card, Typography, Col, Avatar } from 'antd';
 const { Text} = Typography;
 const { Meta } = Card;
 

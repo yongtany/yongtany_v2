@@ -16,7 +16,7 @@ function PostDetailPage(props: any) {
   const postId = props.match.params.postId;
   const [post, setPost]: any = useState([]);
   const [CommentLists, setCommentLists ]: any = useState([]);
-  
+
   useEffect(() => {
     axios.get(`${POST_SERVER}/${postId}`)
       .then(response => {
@@ -63,6 +63,7 @@ function PostDetailPage(props: any) {
                       userFrom={localStorage.getItem('userId')}
                       postId={postId}
                       postInfo={post}
+                      history={props.history}
                     />
                   </div>
 

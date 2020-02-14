@@ -32,11 +32,11 @@ function LoginPage(props: any) {
       }}
       validationSchema={Yup.object().shape({
         email: Yup.string()
-          .email('Email is invalid')
-          .required('Email is required'),
+          .email('이메일 형식으로 작성하여주세요.')
+          .required('이메일을 입력하세요.abnf'),
         password: Yup.string()
-          .min(6, 'Password must be at least 6 characters')
-          .required('Password is required'),
+          .min(6, '특수문자, 대소문자, 적절히 배합하여 6자 이상으로 만들어주세요.')
+          .required('비밀전호를 입력해주세요.'),
       })}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {

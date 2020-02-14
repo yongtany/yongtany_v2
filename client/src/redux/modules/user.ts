@@ -69,6 +69,7 @@ export const loginUser = (dataToSubmit: any) => {
 export const logoutUser = () => {
   return async (dispatch: Dispatch) => {
     const request = await  axios.get(`${USER_SERVER}/logout`);
+    window.localStorage.removeItem('userId')
 
     return dispatch<LogoutUserAction>({
       type: ActionTypes.LOGOUT_USER,

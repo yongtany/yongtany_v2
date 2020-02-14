@@ -2,11 +2,11 @@
 import React from 'react';
 import { Menu } from 'antd';
 import { withRouter } from 'react-router-dom';
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { logoutUser } from '../../redux/modules/user';
 
 function RightMenu(props: any) {
-  const user = useSelector((state: any) => state.user);
+  const { user } = props;
   const dispatch: AppDispatch = useDispatch();
 
   const logoutHandler = () => {
@@ -22,13 +22,13 @@ function RightMenu(props: any) {
   if (user.userData && !user.userData.isAuth) {
     return (
       <Menu style={{ backgroundColor: '#1A181F'}} mode={props.mode}>
-        <Menu.Item key="mail">
-          <a style={{color: 'white'}} href="/login">로그인</a>
-        </Menu.Item>
-        <Menu.Item key="app">
-          <a style={{color: 'white'}} href="/register">회원가입</a>
-        </Menu.Item>
-      </Menu>
+      <Menu.Item key="mail">
+        <a style={{color: 'white'}} href="/login">로그인</a>
+      </Menu.Item>
+      <Menu.Item key="app">
+        <a style={{color: 'white'}} href="/register">회원가입</a>
+      </Menu.Item>
+    </Menu>
     )
   } else {
     return (

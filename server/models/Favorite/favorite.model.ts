@@ -12,7 +12,8 @@ const favoriteSchema = new Schema({
     ref: 'User'
   },
   postId: {
-    type: String
+    type: Schema.Types.ObjectId,
+    ref: 'Post'
   },
   title: {
     type: String
